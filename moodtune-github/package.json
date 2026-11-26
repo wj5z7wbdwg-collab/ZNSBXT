@@ -1,0 +1,42 @@
+{
+  "name": "mood-tune",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "人脸情绪识别歌曲推荐系统（Vue3 + face-api.js 本地推理 + 双轨曲库）",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "bff": "node --use-system-ca server/bff.js",
+    "start": "node --use-system-ca server/bff.js",
+    "fetch-music": "node --use-system-ca scripts/fetch-music.mjs",
+    "fetch-models": "node --use-system-ca scripts/fetch-models.mjs",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@meting/core": "^1.6.2",
+    "axios": "^1.7.7",
+    "express": "^4.21.1",
+    "face-api.js": "^0.22.2",
+    "pinia": "^2.2.4",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "vite": "^5.4.10",
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^2.1.9"
+  },
+  "overrides": {
+    "esbuild": "0.25.10"
+  },
+  "allowScripts": {
+    "esbuild@0.25.10": true,
+    "vue-demi@0.14.10": true
+  }
+}

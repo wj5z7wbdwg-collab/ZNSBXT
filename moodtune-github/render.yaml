@@ -1,0 +1,16 @@
+# 独立 BFF（网易云检索 / 歌词 / 音频代理 / 事件统计）
+# Render 新建 Blueprint 时自动识别；免费实例长时间无请求会休眠，首次请求约 30s 冷启动
+services:
+  - type: web
+    name: moodtune-bff
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: node server/bff.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      # 收紧为 Pages 站点源：https://<用户名>.github.io
+      - key: ALLOWED_ORIGIN
+        value: "*"
